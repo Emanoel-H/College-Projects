@@ -16,4 +16,9 @@ public class User {
     public String getPassWord() {
         return passWord;
     }
+
+    @Override
+    public String toString() {
+        return "Nome do usuário: " + userName;
+    }
 }

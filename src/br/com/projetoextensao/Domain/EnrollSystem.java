@@ -13,7 +13,7 @@ public class EnrollSystem {
 
     public void menu(){
         System.out.println("===============================");
-        System.out.println("1- Registre-se \n2- Fazer Login \n9- Sair");
+        System.out.println("1- Registre-se \n2- Fazer Login \n3- Exibir Usuários \n9- Sair");
         System.out.println("===============================");
     }
 
@@ -36,9 +36,20 @@ public class EnrollSystem {
                 if (findUser(nome).getUserName().equalsIgnoreCase(nome) &&
                         findUser(nome).getPassWord().equalsIgnoreCase(senha)){
                     System.out.println("Bem-vindo ao sistema " + findUser(nome).getUserName());
+                    System.out.println("==============");
+                    System.out.println("Deletar conta? \n1- Sim \n2- Não");
+                    int delete = sc.nextInt();
+                    if (delete == 1){
+                        usuarios.remove(findUser(nome).getUserName());
+                    }else {
+                        break;
+                    }
                 } else {
                     System.out.println("Você digitou o nome de usuário ou senha incorreta, tente de novo.");
                 }
+                break;
+            case 3:
+                System.out.println(usuarios.values());
                 break;
             case 9:
                 System.out.println("Saindo do sistema...");
